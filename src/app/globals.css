@@ -1,0 +1,20 @@
+:root {
+  --primary: #55C0CF;
+  --choco-dark: #2C1E1E;
+  --choco-darker: #1F1615;
+  --highlight: #B65F28;
+  --yellow: #FFD543;
+  --white: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  color: var(--choco-dark);
+  font-family: 'Droid Serif', serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Fjalla One', sans-serif;
+}
