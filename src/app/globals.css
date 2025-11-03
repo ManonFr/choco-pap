@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --primary: #55C0CF;
   --choco-dark: #2C1E1E;
@@ -6,15 +12,26 @@
   --yellow: #FFD543;
   --white: #FFFFFF;
 }
+ html {
+  height: 100%;
+ }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   background-color: var(--white);
   color: var(--choco-dark);
   font-family: 'Noto Serif', serif;
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
   font-family: 'Fjalla One', sans-serif;
+}
+
+main {
+  flex: 1;
 }

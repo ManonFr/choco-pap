@@ -1,8 +1,8 @@
-import Footer from "@/components/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Fjalla_One, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
-import { Fjalla_One, Noto_Serif } from "next/font/google";
+import Footer from "@/components/Footer/Footer";
 
 const fjallaOne = Fjalla_One({
   subsets: ["latin"],
@@ -24,10 +24,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${fjallaOne.variable} ${notoSerif.variable}`}>
-      <head></head>
       <body>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
