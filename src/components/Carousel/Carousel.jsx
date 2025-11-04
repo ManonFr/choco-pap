@@ -17,12 +17,13 @@ export default function Carousel() {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 4000);
-
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section className={styles.carousel}>
+      <div className={styles.placeholder}></div>
+
       <img
         src={images[index]}
         alt={`Slide ${index + 1}`}
