@@ -3,6 +3,7 @@ import { Fjalla_One, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import CartProvider from "@/contexts/CartContext";
 
 const fjallaOne = Fjalla_One({
   subsets: ["latin"],
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${fjallaOne.variable} ${notoSerif.variable}`}>
       <body>
-        <div className="layout">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <CartProvider>
+          <div className="layout">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </CartProvider>
       </body>
     </html>
   );

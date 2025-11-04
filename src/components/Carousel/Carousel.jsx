@@ -31,7 +31,7 @@ export default function Carousel() {
       />
 
       <div className={styles.overlay}>
-        <Link href="/boutique" className={styles.button}>
+        <Link href="/store" className={styles.button}>
           Voir la boutique
         </Link>
       </div>

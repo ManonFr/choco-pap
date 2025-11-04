@@ -30,3 +30,15 @@
 .active a {
   border-bottom: 2px solid var(--yellow);
 }
+
+.badge {
+  background-color: var(--highlight);
+  color: white;
+  border-radius: 9999px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+  display: inline-block;
+  min-width: 18px;
+  text-align: center;
+}
