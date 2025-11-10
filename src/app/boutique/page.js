@@ -3,7 +3,7 @@
 import { useState } from "react";
 import FilterSidebar from "@/components/FilterSidebar/FilterSidebar";
 import ProductGrid from "@/components/ProductGrid/ProductGrid";
-import styles from "./store.module.css";
+import styles from "./boutique.module.css";
 
 export default function StorePage() {
   const [filters, setFilters] = useState({

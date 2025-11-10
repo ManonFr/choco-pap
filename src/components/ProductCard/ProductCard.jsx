@@ -1,5 +1,8 @@
+"use client";
+
 import styles from "./ProductCard.module.css";
 import { useCart } from "@/contexts/CartContext";
+import Image from "next/image";
 
 export default function ProductCard({ product }) {
   const { title, price, image, note } = product;
@@ -7,7 +10,15 @@ export default function ProductCard({ product }) {
 
   return (
     <div className={styles.card}>
-      <img src={image} alt={title} className={styles.image} />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={image}
+          alt={title}
+          width={300}
+          height={150}
+          className={styles.image}
+        />
+      </div>
       <h3 className={styles.name}>{title}</h3>
       <p className={styles.price}>{price} €</p>
       <p className={styles.rating}>Note : {note} / 5</p>

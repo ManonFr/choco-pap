@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import CartProvider from "@/contexts/CartContext";
+import CartDrawer from "@/components/CartDrawer/CartDrawer";
 
 const fjallaOne = Fjalla_One({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
             <main>{children}</main>
             <Footer />
           </div>
+          <CartDrawer />
         </CartProvider>
       </body>
     </html>

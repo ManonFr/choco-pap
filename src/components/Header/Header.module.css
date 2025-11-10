@@ -31,6 +31,18 @@
   border-bottom: 2px solid var(--yellow);
 }
 
+.cartButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 1rem;
+  color: white; /* même couleur que tes liens */
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
 .badge {
   background-color: var(--highlight);
   color: white;
