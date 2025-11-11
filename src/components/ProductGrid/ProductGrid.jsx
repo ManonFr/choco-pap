@@ -7,20 +7,37 @@ import filterProducts from "@/lib/filterProducts";
 
 export default function ProductGrid({ filters }) {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/data/products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error("Erreur chargement produits :", err));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Erreur serveur");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setProducts(data);
+        setError(null);
+      })
+      .catch(() => {
+        setError("Impossible de charger les produits.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   const filtered = filterProducts(products, filters);
 
   return (
     <section className={styles.grid}>
-      {products.length === 0 ? (
-        <p>Chargement des produits...</p>
+      {loading ? (
+        <p className={styles.loading}>Chargement des produits...</p>
+      ) : error ? (
+        <p className={styles.error}>{error}</p>
       ) : filtered.length === 0 ? (
         <p className={styles.noResult}>
           Aucun produit ne correspond à vos filtres.

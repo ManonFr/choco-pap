@@ -37,7 +37,7 @@
   cursor: pointer;
   position: relative;
   font-size: 1rem;
-  color: white; /* même couleur que tes liens */
+  color: white;
   padding: 0;
   display: flex;
   align-items: center;

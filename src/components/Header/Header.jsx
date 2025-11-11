@@ -8,6 +8,7 @@ import { useCart } from "@/contexts/CartContext";
 export default function Header() {
   const pathname = usePathname();
   const { cart, openCart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <header className={styles.header}>
@@ -29,8 +30,8 @@ export default function Header() {
               aria-label="Ouvrir le panier"
             >
               <i className="fa-solid fa-cart-shopping"></i>
-              {cart.length > 0 && (
-                <span className={styles.badge}>{cart.length}</span>
+              {totalItems > 0 && (
+                <span className={styles.badge}>{totalItems}</span>
               )}
             </button>
           </li>

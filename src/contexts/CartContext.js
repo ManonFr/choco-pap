@@ -11,6 +11,7 @@ export const useCart = () => useContext(CartContext);
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   // Load from localStorage on first render
   useEffect(() => {
@@ -18,7 +19,15 @@ export default function CartProvider({ children }) {
     if (savedCart) {
       setCart(JSON.parse(savedCart));
     }
+    setIsReady(true);
   }, []);
+
+  // Save to localStorage only when reade
+  useEffect(() => {
+    if (isReady) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, isReady]);
 
   // Save to localStorage when cart changes
   useEffect(() => {

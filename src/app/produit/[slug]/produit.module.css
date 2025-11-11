@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.imageWrapper {
+  flex: 1 1 400px;
+  min-width: 320px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: "Fjalla One", sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.description {
+  line-height: 1.5;
+  color: #333;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quantity {
+  width: 60px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 0.5rem 1.2rem;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}
+
+.ingredientsBlock {
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.ingredients {
+  color: #444;
+  line-height: 1.6;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.2rem;
+}
