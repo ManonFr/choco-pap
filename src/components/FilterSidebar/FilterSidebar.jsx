@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import AccordionSection from "../AccordionSection/AccordionSection";
 import styles from "./FilterSidebar.module.css";
 
 const CATEGORIES = [
@@ -11,6 +15,19 @@ const CATEGORIES = [
 ];
 
 export default function FilterSidebar({ filters, setFilters }) {
+  const [openSections, setOpenSections] = useState({
+    categories: false,
+    price: false,
+    notes: false,
+  });
+
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   const handleCategoryChange = (e) => {
     const { value, checked } = e.target;
     const newCategories = checked
@@ -33,8 +50,11 @@ export default function FilterSidebar({ filters, setFilters }) {
     <aside className={styles.sidebar}>
       <h2 className={styles.title}>Filtres</h2>
 
-      <div className={styles.filterGroup}>
-        <h3 className={styles.subtitle}>Catégories</h3>
+      <AccordionSection
+        title="Catégories"
+        isOpen={openSections.categories}
+        onToggle={() => toggleSection("categories")}
+      >
         {CATEGORIES.map((cat) => (
           <label key={cat} className={styles.label}>
             <input
@@ -47,10 +67,13 @@ export default function FilterSidebar({ filters, setFilters }) {
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
           </label>
         ))}
-      </div>
+      </AccordionSection>
 
-      <div className={styles.filterGroup}>
-        <h3 className={styles.subtitle}>Prix</h3>
+      <AccordionSection
+        title="Prix"
+        isOpen={openSections.price}
+        onToggle={() => toggleSection("price")}
+      >
         <label className={styles.label}>
           Min :
           <input
@@ -71,10 +94,13 @@ export default function FilterSidebar({ filters, setFilters }) {
             className={styles.input}
           />
         </label>
-      </div>
+      </AccordionSection>
 
-      <div className={styles.filterGroup}>
-        <h3 className={styles.subtitle}>Note minimale</h3>
+      <AccordionSection
+        title="Notes"
+        isOpen={openSections.notes}
+        onToggle={() => toggleSection("notes")}
+      >
         <input
           type="range"
           min="0"
@@ -85,7 +111,8 @@ export default function FilterSidebar({ filters, setFilters }) {
           className={styles.range}
         />
         <span className={styles.note}>{filters.minNote} / 5</span>
-      </div>
+      </AccordionSection>
+
       <button
         onClick={() =>
           setFilters({

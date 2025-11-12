@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import styles from "./ProductGrid.module.css";
 import filterProducts from "@/lib/filterProducts";
+import styles from "./ProductGrid.module.css";
 
 export default function ProductGrid({ filters }) {
   const [products, setProducts] = useState([]);

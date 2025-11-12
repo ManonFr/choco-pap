@@ -1,0 +1,42 @@
+.group {
+  margin-bottom: 1.5rem;
+}
+
+.toggle {
+  font-weight: bold;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--choco-dark);
+  display: flex;
+  width: 100%;
+  text-align: left;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.content.open {
+  max-height: 500px;
+}
+
+@media screen and (min-width: 768px) {
+  .toggle {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .symbol {
+    display: none;
+  }
+
+  .content {
+    max-height: none !important;
+    overflow: visible;
+  }
+}
