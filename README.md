@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chocopap
+
+**Choco Pap** is a fictional chocolate e-commerce website built as part of a web development training project.  
+The site is fully responsive, mobile-first, with no CSS framework, and structured using **Next.js App Router**.
+
+---
+
+## Features
+
+- Dynamic cart with add/remove/quantity controls
+- Cart persistence using `localStorage`
+- Centralized state with `CartContext`
+- Product filtering by category, price, and rating
+- Responsive design with collapsible filters and adaptive layout
+- SSR hydration-safe with `isReady` handling (no Next.js hydration errors)
+- Product data loaded dynamically from a local JSON file
+
+---
+
+## Tech Stack
+
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
+- **Language**: JavaScript (with `use client` components)
+- **Styling**: CSS Modules (no Tailwind, no Bootstrap)
+- **Icons**: Font Awesome
+- **Fonts**: Google Fonts (`Fjalla One`, `Noto Serif`)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repo:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   git clone https://github.com/your-username/choco-pap.git
+   cd choco-pap
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. Install dependencies:
+   npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the dev server:
+   npm run dev
 
-## Learn More
+4. Visit:
+   http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+choco-pap/
+├── app/
+│ ├── page.js # Home page
+│ ├── boutique/ # Store page
+│ └── produits/[slug]/ # Product detail page
+├── components/
+│ ├── Header/
+│ ├── Footer/
+│ ├── CartDrawer/
+│ ├── FilterSidebar/
+│ ├── ProductGrid/
+│ └── ProductCard/
+├── contexts/
+│ └── CartContext.js # Cart state logic
+├── lib/
+│ ├── filterProducts.js
+│ └── slugify.js
+├── public/
+│ └── data/products.json # Product data
+│ └── images/ # Product & carousel images
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project developed by Manon Fromage, as part of a training program to learn web development.
+
+---
+
+## License
+
+This is an educational project, feel free to reuse or adapt it for learning purposes.
