@@ -53,13 +53,35 @@ export default function ProductPage() {
         <p className={styles.description}>{product.description}</p>
 
         <div className={styles.controls}>
-          <input
-            type="number"
-            className={styles.quantity}
-            value={quantity}
-            min="1"
-            onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
-          />
+          <div className={styles.quantityWrapper}>
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+              className={styles.arrow}
+              aria-label="Diminuer la quantité"
+            >
+              -
+            </button>
+
+            <input
+              type="number"
+              className={styles.quantity}
+              value={quantity}
+              min="1"
+              onChange={(e) =>
+                setQuantity(Math.max(1, parseInt(e.target.value)))
+              }
+            />
+
+            <button
+              type="button"
+              onClick={() => setQuantity((q) => q + 1)}
+              className={styles.arrow}
+              aria-label="Augmenter la quantité"
+            >
+              +
+            </button>
+          </div>
           <button onClick={handleAddToCart} className={styles.button}>
             Ajouter au panier
           </button>

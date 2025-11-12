@@ -52,6 +52,13 @@
   margin-top: 1rem;
 }
 
+.quantityWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
 .quantity {
   width: 60px;
   padding: 0.5rem;
@@ -59,6 +66,32 @@
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.quantity::-webkit-outer-spin-button,
+.quantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.arrow {
+  background-color: var(--white);
+  color: var(--choco-darker);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  transition: background-color 0.2s;
+}
+
+.arrow:hover {
+  background-color: var(--yellow);
+  color: var(--choco-dark);
 }
 
 .button {
@@ -71,7 +104,7 @@
 }
 
 .button:hover {
-  background-color: #f0f0f0;
+  background-color: var(--yellow);
 }
 
 .ingredientsBlock {
@@ -86,7 +119,7 @@
 }
 
 .ingredients {
-  color: #444;
+  color: var(--choco-dark);
   line-height: 1.6;
 }
 
@@ -94,4 +127,39 @@
   text-align: center;
   margin-top: 3rem;
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .details {
+    order: 1;
+    gap: 0.75rem;
+    flex: none;
+    width: 100%;
+  }
+
+  .ingredientsBlock {
+    order: 3;
+  }
+
+  .imageWrapper {
+    order: 2;
+    margin-top: 1.5rem;
+    flex: none;
+    width: 100%;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    width: 100%;
+  }
 }
