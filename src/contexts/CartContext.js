@@ -74,6 +74,10 @@ export default function CartProvider({ children }) {
     );
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
@@ -85,6 +89,7 @@ export default function CartProvider({ children }) {
         removeFromCart,
         incrementQuantity,
         decrementQuantity,
+        clearCart,
         isOpen,
         openCart,
         closeCart,

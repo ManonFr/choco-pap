@@ -11,6 +11,7 @@ export default function CartDrawer() {
     incrementQuantity,
     decrementQuantity,
     removeFromCart,
+    clearCart,
     isOpen,
     closeCart,
   } = useCart();
@@ -89,6 +90,15 @@ export default function CartDrawer() {
 
           <div className={styles.summary}>
             <strong>Total à payer :</strong> {total.toFixed(2)} €
+          </div>
+
+          <div className={styles.cartActions}>
+            <button onClick={clearCart} className={styles.clearButton}>
+              Vider le panier
+            </button>
+            <button className={styles.checkoutButton} disabled>
+              Valider le panier
+            </button>
           </div>
         </>
       )}
