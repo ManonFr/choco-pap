@@ -93,6 +93,7 @@ export default function CartProvider({ children }) {
         isOpen,
         openCart,
         closeCart,
+        isReady,
       }}
     >
       {children}

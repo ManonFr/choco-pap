@@ -16,7 +16,7 @@ export default function AccordionSection({
         type="button"
         aria-expanded={isOpen}
       >
-        <span className={styles.title}>{title}</span>
+        <span>{title}</span>
         <span className={styles.symbol}>{isOpen ? "−" : "+"}</span>{" "}
       </button>
       <div className={`${styles.content} ${isOpen ? styles.open : ""}`}>

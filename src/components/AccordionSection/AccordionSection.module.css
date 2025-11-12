@@ -15,6 +15,10 @@
   text-align: left;
 }
 
+.symbol {
+  margin-left: 0.5rem;
+}
+
 .content {
   max-height: 0;
   overflow: hidden;

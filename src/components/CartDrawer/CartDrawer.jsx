@@ -14,6 +14,7 @@ export default function CartDrawer() {
     clearCart,
     isOpen,
     closeCart,
+    isReady,
   } = useCart();
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -33,6 +34,8 @@ export default function CartDrawer() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, closeCart]);
+
+  if (!isReady) return null;
 
   return (
     <div className={`${styles.drawer} ${isOpen ? styles.open : ""}`}>
