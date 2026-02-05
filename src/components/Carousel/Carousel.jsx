@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Carousel.module.css";
 
 const images = [
@@ -24,10 +25,11 @@ export default function Carousel() {
     <section className={styles.carousel}>
       <div className={styles.placeholder}></div>
 
-      <img
+      <Image
         src={images[index]}
         alt={`Slide ${index + 1}`}
         className={styles.image}
+        fill
       />
 
       <div className={styles.overlay}>

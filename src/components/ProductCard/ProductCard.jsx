@@ -11,6 +11,11 @@ export default function ProductCard({ product }) {
   const { addToCart } = useCart();
   const slug = slugify(title);
 
+  // Add product to cart when button is clicked
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
+
   return (
     <div className={styles.card}>
       <Link href={`/produit/${slug}`} className={styles.linkWrapper}>
@@ -24,11 +29,16 @@ export default function ProductCard({ product }) {
           />
         </div>
         <h3 className={styles.name}>{title}</h3>
-        <p className={styles.price}>{price} €</p>
-        <p className={styles.rating}>Note : {note} / 5</p>
       </Link>
 
-      <button className={styles.button} onClick={() => addToCart(product)}>
+      <p className={styles.price}>{price} €</p>
+      <p className={styles.rating}>Note : {note} / 5</p>
+
+      <button
+        className={styles.button}
+        onClick={handleAddToCart}
+        aria-label={`Ajouter ${title} au panier`}
+      >
         Ajouter au panier
       </button>
     </div>

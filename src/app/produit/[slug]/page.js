@@ -24,16 +24,22 @@ export default function ProductPage() {
       });
   }, [slug]);
 
-  if (!product) {
-    return <p className={styles.loading}>Produit introuvable</p>;
-  }
-
   const handleAddToCart = () => {
+    if (!product || quantity < 1) return;
+
     for (let i = 0; i < quantity; i++) {
       addToCart(product);
     }
+
     openCart();
   };
+
+  if (loading) {
+    return <p className={styles.loading}>Chargement du produit...</p>;
+  }
+  if (!product) {
+    return <p className={styles.loading}>Produit introuvable</p>;
+  }
 
   return (
     <div className={styles.container}>

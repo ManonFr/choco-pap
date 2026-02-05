@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import AccordionSection from "../AccordionSection/AccordionSection";
 import styles from "./FilterSidebar.module.css";
 
@@ -21,30 +21,62 @@ export default function FilterSidebar({ filters, setFilters }) {
     notes: false,
   });
 
-  const toggleSection = (section) => {
+  // Toggle accordion section
+  const toggleSection = useCallback((section) => {
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
     }));
-  };
+  }, []);
 
-  const handleCategoryChange = (e) => {
-    const { value, checked } = e.target;
-    const newCategories = checked
-      ? [...filters.categories, value]
-      : filters.categories.filter((cat) => cat !== value);
+  // Handle category checkbox changes
+  const handleCategoryChange = useCallback(
+    (e) => {
+      const { value, checked } = e.target;
 
-    setFilters({ ...filters, categories: newCategories });
-  };
+      setFilters((prev) => {
+        const updatedCategories = checked
+          ? [...prev.categories, value]
+          : prev.categories.filter((cat) => cat !== value);
 
-  const handlePriceChange = (e) => {
-    const { name, value } = e.target;
-    setFilters({ ...filters, [name]: parseFloat(value) });
-  };
+        return { ...prev, categories: updatedCategories };
+      });
+    },
+    [setFilters]
+  );
 
-  const handleNoteChange = (e) => {
-    setFilters({ ...filters, minNote: parseFloat(e.target.value) });
-  };
+  // Handle minPrice/maxPrice changes
+  const handlePriceChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setFilters((prev) => ({
+        ...prev,
+        [name]: parseFloat(value),
+      }));
+    },
+    [setFilters]
+  );
+
+  // Handle rating slider
+  const handleNoteChange = useCallback(
+    (e) => {
+      setFilters((prev) => ({
+        ...prev,
+        minNote: parseFloat(e.target.value),
+      }));
+    },
+    [setFilters]
+  );
+
+  // Reset all filter values
+  const resetFilters = useCallback(() => {
+    setFilters({
+      categories: [],
+      minPrice: 0,
+      maxPrice: 100,
+      minNote: 0,
+    });
+  }, [setFilters]);
 
   return (
     <aside className={styles.sidebar}>
@@ -113,17 +145,7 @@ export default function FilterSidebar({ filters, setFilters }) {
         <span className={styles.note}>{filters.minNote} / 5</span>
       </AccordionSection>
 
-      <button
-        onClick={() =>
-          setFilters({
-            categories: [],
-            minPrice: 0,
-            maxPrice: 100,
-            minNote: 0,
-          })
-        }
-        className={styles.resetButton}
-      >
+      <button onClick={resetFilters} className={styles.resetButton}>
         Réinitialiser les filtres
       </button>
     </aside>
