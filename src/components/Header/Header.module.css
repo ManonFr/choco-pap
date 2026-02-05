@@ -4,15 +4,8 @@
   align-items: center;
   background-color: var(--primary);
   color: var(--white);
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
   position: relative;
-}
-
-.logo a {
-  text-decoration: none;
-  color: var(--white);
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .burger {
@@ -70,6 +63,7 @@
 }
 
 @media screen and (max-width: 767px) {
+
 .burger {
   display: block;
 }

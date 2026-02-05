@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
 import { useState } from "react";
 import styles from "./Header.module.css";
+import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
@@ -20,7 +21,15 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link href="/">Choco Pap</Link>
+        <Link href="/">
+          <Image
+            src="/images/logo.png"
+            alt="Choco Pap"
+            width={70}
+            height={70}
+            priority
+          />
+        </Link>
       </div>
 
       <button

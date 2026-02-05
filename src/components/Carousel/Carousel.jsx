@@ -33,6 +33,7 @@ export default function Carousel() {
       />
 
       <div className={styles.overlay}>
+        <h1 className={styles.title}>Choco Pap</h1>
         <Link href="/boutique" className={styles.button}>
           Voir la boutique
         </Link>
